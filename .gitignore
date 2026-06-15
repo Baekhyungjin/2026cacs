@@ -1,0 +1,10 @@
+node_modules/
+.vite/
+dist/
+*.tsbuildinfo
+server.*.log
+qa-*.png
+2026 CSCA 핸드북(260613).pdf
+
+# Local Netlify folder
+.netlify
