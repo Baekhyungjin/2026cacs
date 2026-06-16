@@ -4,6 +4,7 @@ import {
   CalendarDays,
   ChevronRight,
   Download,
+  Eye,
   FileText,
   Globe2,
   History,
@@ -12,7 +13,7 @@ import {
   MapPin,
   UsersRound,
 } from "lucide-react";
-import { cscaCards, resources, schedule, seminar, usage } from "./data/seminar";
+import { cscaCards, resources, schedule, seminar, seminarHistory, usage } from "./data/seminar";
 
 const cardIcons = [Library, UsersRound, History];
 
@@ -26,6 +27,7 @@ function App() {
         </a>
         <nav aria-label="주요 메뉴">
           <a href="#about">소개</a>
+          <a href="#history">역사</a>
           <a href="#resources">발제자료</a>
           <a href="#schedule">일정</a>
           <a href="#usage">활용방법</a>
@@ -95,9 +97,39 @@ function App() {
           </div>
         </section>
 
+        <section className="section history" id="history" aria-labelledby="history-title">
+          <div className="section-heading">
+            <span className="section-index">02</span>
+            <div>
+              <h2 id="history-title">CSCA 세미나 역사 구성</h2>
+              <p>
+                2002년 창립 이후 CSCA 세미나는 아시아 선교 현장의 변화에 맞춰
+                종교 연구, 상황화, 아세안, 위기, 다문화, 적대적 환경의 주제로
+                흐름을 확장해 왔습니다.
+              </p>
+            </div>
+          </div>
+          <div className="history-timeline">
+            {seminarHistory.map((entry) => (
+              <article className="history-item" key={entry.period}>
+                <div className="history-period">{entry.period}</div>
+                <div className="history-body">
+                  <h3>{entry.title}</h3>
+                  <p>{entry.body}</p>
+                  <ul>
+                    {entry.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section resources" id="resources" aria-labelledby="resources-title">
           <div className="section-heading compact">
-            <span className="section-index">02</span>
+            <span className="section-index">03</span>
             <div>
               <h2 id="resources-title">발제별 PDF 자료</h2>
               <p>원본 핸드북을 발제·부록·예배/시간표 단위로 나누었습니다.</p>
@@ -127,10 +159,16 @@ function App() {
                     ))}
                   </div>
                 </div>
-                <a className="download-button" href={item.file} download>
-                  PDF
-                  <Download size={17} aria-hidden="true" />
-                </a>
+                <div className="resource-actions">
+                  <a className="view-button" href={item.file} target="_blank" rel="noreferrer">
+                    보기
+                    <Eye size={17} aria-hidden="true" />
+                  </a>
+                  <a className="download-button" href={item.file} download>
+                    다운로드
+                    <Download size={17} aria-hidden="true" />
+                  </a>
+                </div>
               </article>
             ))}
           </div>
@@ -138,7 +176,7 @@ function App() {
 
         <section className="section usage" id="usage" aria-labelledby="usage-title">
           <div className="section-heading">
-            <span className="section-index">03</span>
+            <span className="section-index">04</span>
             <div>
               <h2 id="usage-title">활용방법</h2>
               <p>세미나 참석, 운영, 홍보, 이미지 활용을 한 페이지에서 정리합니다.</p>
@@ -157,7 +195,7 @@ function App() {
 
         <section className="section schedule" id="schedule" aria-labelledby="schedule-title">
           <div className="section-heading compact">
-            <span className="section-index">04</span>
+            <span className="section-index">05</span>
             <div>
               <h2 id="schedule-title">특강과 예배 순서</h2>
               <p>핸드북 후반부의 특강·예배 정보를 빠르게 확인합니다.</p>

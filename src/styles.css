@@ -181,6 +181,7 @@ a {
 
 .primary-button,
 .secondary-button,
+.view-button,
 .download-button,
 .text-link {
   align-items: center;
@@ -356,6 +357,78 @@ a {
   background: linear-gradient(180deg, var(--soft), var(--paper));
 }
 
+.history {
+  background: linear-gradient(180deg, var(--white), var(--paper));
+}
+
+.history-timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.history-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 150px minmax(0, 1fr);
+  padding: 26px;
+}
+
+.history-period {
+  align-self: start;
+  background: var(--teal-dark);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 13px 14px;
+  text-align: center;
+}
+
+.history-body h3 {
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.history-body p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 10px 0 0;
+}
+
+.history-body ul {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.history-body li {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+
+.history-body li::before {
+  background: var(--gold);
+  border-radius: 999px;
+  content: "";
+  height: 6px;
+  left: 0;
+  position: absolute;
+  top: 9px;
+  width: 6px;
+}
+
 .text-link {
   border-bottom: 2px solid var(--gold);
   color: var(--teal-dark);
@@ -432,6 +505,20 @@ a {
 .download-button {
   background: var(--ink);
   color: var(--white);
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.view-button {
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--teal-dark);
   gap: 8px;
   min-height: 42px;
   padding: 0 15px;
@@ -559,6 +646,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .history-item {
+    grid-template-columns: 1fr;
+  }
+
   .closing {
     grid-template-columns: 1fr;
   }
@@ -644,6 +735,14 @@ a {
   }
 
   .download-button {
+    width: 100%;
+  }
+
+  .resource-actions {
+    flex-direction: column;
+  }
+
+  .view-button {
     width: 100%;
   }
 }
