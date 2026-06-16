@@ -13,7 +13,15 @@ import {
   MapPin,
   UsersRound,
 } from "lucide-react";
-import { cscaCards, resources, schedule, seminar, seminarHistory, usage } from "./data/seminar";
+import {
+  cscaCards,
+  organization,
+  resources,
+  schedule,
+  seminar,
+  seminarHistory,
+  usage,
+} from "./data/seminar";
 
 const cardIcons = [Library, UsersRound, History];
 
@@ -22,14 +30,14 @@ function App() {
     <div className="site-shell">
       <header className="topbar">
         <a className="brand" href="#top" aria-label="CSCA 세미나 홈">
-          <span className="brand-mark">C</span>
+          <img className="brand-logo" src="images/csca-logo.png" alt="CSCA 로고" />
           <span>CSCA 2026</span>
         </a>
         <nav aria-label="주요 메뉴">
           <a href="#about">소개</a>
+          <a href="#organization">조직</a>
           <a href="#history">역사</a>
           <a href="#resources">발제자료</a>
-          <a href="#schedule">일정</a>
           <a href="#usage">활용방법</a>
         </nav>
       </header>
@@ -37,6 +45,10 @@ function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
+            <div className="hero-logo-card">
+              <img src="images/csca-logo.png" alt="CSCA 공식 로고" />
+              <span>Centre for the Study of Christianity in Asia</span>
+            </div>
             <p className="meta">
               <CalendarDays size={18} aria-hidden="true" />
               {seminar.datePlace}
@@ -97,30 +109,85 @@ function App() {
           </div>
         </section>
 
-        <section className="section history" id="history" aria-labelledby="history-title">
+        <section className="section organization" id="organization" aria-labelledby="organization-title">
           <div className="section-heading">
             <span className="section-index">02</span>
             <div>
-              <h2 id="history-title">CSCA 세미나 역사 구성</h2>
+              <h2 id="organization-title">CSCA 조직도</h2>
               <p>
-                2002년 창립 이후 CSCA 세미나는 아시아 선교 현장의 변화에 맞춰
-                종교 연구, 상황화, 아세안, 위기, 다문화, 적대적 환경의 주제로
-                흐름을 확장해 왔습니다.
+                연구 방향을 맡는 원장단, 자문을 제공하는 고문단, 현장별 운영위원,
+                제19회 세미나 준비 담당자를 계층형 조직도로 정리했습니다.
+              </p>
+            </div>
+          </div>
+          <div className="org-chart" aria-label="CSCA 조직도">
+            <div className="org-level org-level-root">
+              <article className="org-node org-node-primary">
+                <span>원장단</span>
+                <h3>CSCA 연구·운영 리더십</h3>
+                <ul>
+                  {organization.directors.map((person) => (
+                    <li key={person}>{person}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            <div className="org-branches" aria-hidden="true" />
+            <div className="org-level org-level-groups">
+              <article className="org-node">
+                <span>고문</span>
+                <h3>학문·목회 자문</h3>
+                <ul>
+                  {organization.advisors.map((person) => (
+                    <li key={person}>{person}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="org-node">
+                <span>운영위원</span>
+                <h3>아시아 현장 운영</h3>
+                <ul>
+                  {organization.committee.map((person) => (
+                    <li key={person}>{person}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="org-node">
+                <span>제19회 준비</span>
+                <h3>세미나 실행 담당</h3>
+                <ul>
+                  {organization.preparation.map((person) => (
+                    <li key={person}>{person}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section history" id="history" aria-labelledby="history-title">
+          <div className="section-heading">
+            <span className="section-index">03</span>
+            <div>
+              <h2 id="history-title">CSCA 세미나 역사 타임라인</h2>
+              <p>
+                2002년 방콕에서 시작된 CSCA 세미나는 아시아 여러 도시와 온라인을
+                거치며 종교 연구, 상황화, 아세안 통합, 위기, 다문화, 적대적 환경의
+                주제로 확장되어 왔습니다.
               </p>
             </div>
           </div>
           <div className="history-timeline">
             {seminarHistory.map((entry) => (
-              <article className="history-item" key={entry.period}>
-                <div className="history-period">{entry.period}</div>
+              <article className="history-item" key={`${entry.edition}-${entry.date}`}>
+                <div className="history-period">
+                  <span>{entry.year}</span>
+                  <strong>{entry.edition}</strong>
+                </div>
                 <div className="history-body">
-                  <h3>{entry.title}</h3>
-                  <p>{entry.body}</p>
-                  <ul>
-                    {entry.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <h3>{entry.theme}</h3>
+                  <p>{entry.place}</p>
+                  <small>{entry.date}</small>
                 </div>
               </article>
             ))}
@@ -129,7 +196,7 @@ function App() {
 
         <section className="section resources" id="resources" aria-labelledby="resources-title">
           <div className="section-heading compact">
-            <span className="section-index">03</span>
+            <span className="section-index">04</span>
             <div>
               <h2 id="resources-title">발제별 PDF 자료</h2>
               <p>원본 핸드북을 발제·부록·예배/시간표 단위로 나누었습니다.</p>
@@ -176,7 +243,7 @@ function App() {
 
         <section className="section usage" id="usage" aria-labelledby="usage-title">
           <div className="section-heading">
-            <span className="section-index">04</span>
+            <span className="section-index">05</span>
             <div>
               <h2 id="usage-title">활용방법</h2>
               <p>세미나 참석, 운영, 홍보, 이미지 활용을 한 페이지에서 정리합니다.</p>
@@ -195,22 +262,25 @@ function App() {
 
         <section className="section schedule" id="schedule" aria-labelledby="schedule-title">
           <div className="section-heading compact">
-            <span className="section-index">05</span>
+            <span className="section-index">06</span>
             <div>
-              <h2 id="schedule-title">특강과 예배 순서</h2>
-              <p>핸드북 후반부의 특강·예배 정보를 빠르게 확인합니다.</p>
+              <h2 id="schedule-title">참석자용 진행 정보</h2>
+              <p>특강과 예배 순서는 공개 홍보보다 현장 참석자 안내 성격이 강해 하단 보조 정보로 배치했습니다.</p>
             </div>
           </div>
-          <div className="schedule-panel">
-            {schedule.map((item) => (
-              <div className="schedule-row" key={`${item.type}-${item.title}`}>
-                <span>{item.type}</span>
-                <strong>{item.title}</strong>
-                <p>{item.person}</p>
-                <small>{item.text}</small>
-              </div>
-            ))}
-          </div>
+          <details className="schedule-disclosure">
+            <summary>특강 및 예배 순서 보기</summary>
+            <div className="schedule-panel">
+              {schedule.map((item) => (
+                <div className="schedule-row" key={`${item.type}-${item.title}`}>
+                  <span>{item.type}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.person}</p>
+                  <small>{item.text}</small>
+                </div>
+              ))}
+            </div>
+          </details>
         </section>
 
         <section className="closing">
