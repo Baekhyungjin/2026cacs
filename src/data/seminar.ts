@@ -281,7 +281,7 @@ export const resources: Resource[] = [
     label: "발제 7",
     title: "선택하지 않은 약함 (When Weakness Is Not Chosen)",
     speaker: "최재영 선교사",
-    range: "p.80-94",
+    range: "p.80-95",
     file: "pdfs/07-weakness-kenotic-missiology.pdf",
     summary:
       "남아시아 교회의 강요된 주변성을 낭만화하지 않으면서 케노시스와 십자가의 관점으로 선교학적 의미를 재해석합니다.",
@@ -292,7 +292,7 @@ export const resources: Resource[] = [
     label: "발제 8",
     title: "적대적 환경에서의 캄보디아 선교와 비우호적 환경에서의 GMS 선교",
     speaker: "장완익 선교사",
-    range: "p.95-101",
+    range: "p.96-102",
     file: "pdfs/08-cambodia-gms-mission.pdf",
     summary:
       "캄보디아의 불교 문화와 GMS 선교 구조를 배경으로 비우호적 환경에서 동역과 위기 인식의 필요성을 다룹니다.",
@@ -303,7 +303,7 @@ export const resources: Resource[] = [
     label: "발제 9",
     title: "필리핀 민다나오 모슬렘과 기독교의 종교적 갈등 구조 상황에서 선교적 접근에 관한 연구",
     speaker: "신기대 선교사",
-    range: "p.102-114",
+    range: "p.103-115",
     file: "pdfs/09-mindanao-reconciliation.pdf",
     summary:
       "민다나오 갈등을 식민 역사, 이주 정책, 정치 정체성의 구조 속에서 분석하고 화해 중심 선교 접근을 모색합니다.",
@@ -314,7 +314,7 @@ export const resources: Resource[] = [
     label: "발제 10",
     title: "위협적 환경을 극복하는 평안 선교",
     speaker: "양덕훈 선교사",
-    range: "p.115-128",
+    range: "p.116-129",
     file: "pdfs/10-missio-pacis.pdf",
     summary:
       "선과 악, 벗과 적을 가르는 이분법적 심리를 성찰하며 선교를 평안과 화해의 사명으로 재정렬합니다.",
@@ -325,7 +325,7 @@ export const resources: Resource[] = [
     label: "부록",
     title: "적대적 선교 환경 속에서 예수의 광야 시험 다시 읽기",
     speaker: "이승혁 목사",
-    range: "p.129-144",
+    range: "p.130-145",
     file: "pdfs/11-wilderness-temptation.pdf",
     summary:
       "광야 시험을 통해 적대적 환경이 촉발하는 정체성, 예배, 충성의 내적 유혹을 영성신학적으로 재고합니다.",
@@ -336,7 +336,7 @@ export const resources: Resource[] = [
     label: "특강·예배",
     title: "특강, 예배, 발제 및 예배 순서 담당자와 시간표",
     speaker: "CSCA",
-    range: "p.145-154",
+    range: "p.146-154",
     file: "pdfs/12-worship-schedule.pdf",
     summary:
       "특강, 개회예배, 경건회, 폐회예배, 발제 사회·기도·발제자 정보를 한 번에 확인할 수 있습니다.",
